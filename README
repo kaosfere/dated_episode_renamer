@@ -1,0 +1,50 @@
+dated_episode_renamer.py
+
+This is a simple python script which helps solve the problem of several popular
+daily television shows being posted online with their air date as the primary
+identifying information -- this conflicts with the standard season/episode
+numbering method used by most shows.
+
+
+BASIC USAGE:
+
+  ./dated_episode_renamer.py my.show.2010.03.01.title.avi
+
+  This will look up the name of the show on thetvdb.com, and search all episodes
+  for the one which aired on 1 March 2010, then rename it to, for example:
+
+  My Show - 1x01 (2010-03-01) - Show Title.avi
+
+
+OPTIONS:
+
+  -d <path>: Directory to move the renamed show to when done
+
+  -v: Operate in verbose mode, providing a little more output
+  -D: Delete the directory that the file is now in, after moving it
+       (Can only be used if -d is also provided)
+
+
+NOTES:
+
+  Currently the formatting for the output filename is hardcoded based on my own
+  personal preferences.  This will be changed in a future version. 
+
+  The current implementation uses DOM, as that is what I'm most familiar with.
+  This does have some performance penalties when slurping down long-running
+  shows with many episodes (like The Daily Show).  I would like to reimplement
+  it using SAX instead to see how the performance improves
+
+  This script uses the API provided by http://www.thetvdb.com.  Please try to
+  avoid abusing their services (and my API key).  If you're going to be using
+  this script extensively, I'd urge you to apply for your own key at
+  http://thetvdb.com/?tab=apiregister.
+
+  Even if you don't plan on using a new key, the site would like to encourage
+  you to register and help maintain the database they provide for free
+
+
+AUTHOR:
+
+  The author, Rob Jones, can be contacted at <rcj@me.com>, or via the projects
+  github (http://github.com/kaosfere/dated_episode_renamer).
