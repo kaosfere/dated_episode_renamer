@@ -1,0 +1,3 @@
+* Rewrite XML logic to use SAX rather than DOM for performance gains
+
+* Provider greater templating ability for input parsing / output naming
