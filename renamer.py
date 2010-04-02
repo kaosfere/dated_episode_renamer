@@ -66,10 +66,20 @@ class TVDB:
 			airdate=episode_node.getElementsByTagName('FirstAired')[0]
 			if(airdate.firstChild):
 				episode.airdate=airdate.firstChild.data
+			
+			season_number=episode_node.getElementsByTagName('SeasonNumber')[0]
+			if(season_number.firstChild):
+				episode.season_number=int(season_number.firstChild.data)
 
-			episode.season_number=int(episode_node.getElementsByTagName('SeasonNumber')[0].firstChild.data)
-			episode.number=int(episode_node.getElementsByTagName('EpisodeNumber')[0].firstChild.data)
-			episode.title=episode_node.getElementsByTagName('EpisodeName')[0].firstChild.data
+			
+			episode_number=episode_node.getElementsByTagName('EpisodeNumber')[0]
+			if(episode_number.firstChild):
+				episode.number=int(episode_number.firstChild.data)
+
+			
+			episode_title=episode_node.getElementsByTagName('EpisodeName')[0]
+			if(episode_title.firstChild):
+				episode.title=episode_title.firstChild.data
 
 			episodes.append(episode)
 
